@@ -6,7 +6,7 @@ LABEL dev="anup"
 
 #executed commands in the dockerfile
 RUN apt-get update && \
-    apt-get install apache2 unzip -y  && \
+    apt-get install nginx unzip -y  && \
     rm /var/www/html/index.html 
 
 #downloaded and add the zip file to the specified location
@@ -25,4 +25,4 @@ EXPOSE 80
 
 #command to run the apache server in foreground mode
 #CMD ["httpd-foreground"]
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
